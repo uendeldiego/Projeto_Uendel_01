@@ -7,7 +7,7 @@
 P3           # "P3" means this is a RGB color image in ASCII
 3 2          # "3 2" is the width and height of the image in pixels
 255          # "255" is the maximum value for each color
-# The part above is the header
+# The part above is the header 
 */
 
 #include<iostream>
@@ -26,7 +26,7 @@ using namespace std;
 
 	// Open images		- Abre imagens
 	image.open("./images/monument01.ppm");
-	newimage.open("./images/monument_Output_filter_Red_v03.ppm");
+	newimage.open("./images/monument_Output_filter_Red_v04.ppm");
 
 	// Copy over header
 	// P3  # "P3" means this is a RGB color image in ASCII
@@ -82,9 +82,10 @@ using namespace std;
 			intRED += 30;
 
 		}
+
 		// Filter - Green
 
-		if (intGreen - 30 < 255) {
+		if (intGreen - 30 < 0) {
 			intGreen = 0;
 		}
 		else {
@@ -94,7 +95,7 @@ using namespace std;
 		// Filter - Blue
 
 		if (intBlue + 50 > 255) {
-			intBlue = 0;
+			intBlue = 255;
 		}
 		else {
 			intBlue += 50;
